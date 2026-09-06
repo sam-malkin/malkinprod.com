@@ -137,6 +137,15 @@
         .project-video-container.is-playing > div { display: none; }
         .project-video-container.is-playing .project-thumb-bg { opacity: 0; }
 
+        /* MOBILE overrides for video containers */
+        @media (max-width: 767.98px) {
+            .project-video-container { border-radius: 6px; }
+            .project-title { font-size: 16px !important; }
+            .project-title a { font-size: 16px !important; }
+            .project-category { font-size: 12px; }
+            .request-loader { height: 48px; padding: 0 16px; }
+        }
+
         /* CONTACT CTA */
         .contact-cta-image img {
             width: 100%;

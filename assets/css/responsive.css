@@ -411,11 +411,7 @@
     .project-title a{
         font-size: 28px;
     }
-    .project-video-bg#video-bg-3,
-    .project-video-bg{
-        width: 250%;
-        height: 250%;
-    }
+    /* Removed old project-video-bg rules — thumbnails now use project-thumb-bg */
     .project-result{
         font-size: 21px;
     }
@@ -508,62 +504,202 @@
         width: 100%;
         margin-top: 20px;
     }
-    /* AI Works mobile */
+    /* ── HERO BANNER mobile ── */
+    .banner-home-video{
+        min-height: 100vh;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+    }
+    .home-title-container h1{
+        font-size: 48px;
+        line-height: 1.05;
+    }
+    .home-avatar-container p{
+        font-size: 13px;
+        line-height: 1.6;
+    }
+    .social-icon{
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    /* ── ABOUT mobile ── */
+    .section-about{
+        padding: 60px 0;
+    }
+    .about-photo-wrap{
+        max-width: 260px;
+        margin-bottom: 10px;
+    }
+    .about-name{
+        font-size: clamp(1.8rem, 8vw, 2.8rem);
+        text-align: center;
+    }
+    .about-label, .about-title{
+        text-align: center;
+    }
+    .about-tagline{
+        font-size: 0.95rem;
+        text-align: center;
+        max-width: 100%;
+    }
+    .stat-number{
+        font-size: 2rem;
+    }
+    .stat-label{
+        font-size: 0.7rem;
+    }
+    .section-about .d-flex.flex-row.gap-5{
+        justify-content: center;
+        gap: 30px !important;
+    }
+
+    /* ── AI WORKS mobile ── */
     .section-ai-works{
-        padding: 60px 20px;
+        padding: 60px 16px;
     }
     .ai-works-header{
-        margin-bottom: 30px;
+        margin-bottom: 24px;
+    }
+    .ai-works-title{
+        font-size: clamp(2rem, 8vw, 2.8rem);
+    }
+    .ai-works-desc{
+        font-size: 0.85rem;
     }
     .ai-works-stats{
-        gap: 20px;
+        gap: 16px;
     }
     .ai-stat-number{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     .ai-stat-label{
-        font-size: 0.65rem;
+        font-size: 0.6rem;
     }
     .ai-reels-grid{
         grid-template-columns: 1fr;
-        gap: 30px;
-        max-width: 320px;
+        gap: 28px;
+        max-width: 300px;
         margin: 0 auto;
     }
     .ai-reel-phone{
         border-radius: 20px;
     }
+    .ai-play-btn{
+        width: 56px;
+        height: 56px;
+        font-size: 18px;
+    }
     .ai-reel-ctrl-btn{
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
         font-size: 12px;
+    }
+    .ai-reel-meta{
+        padding: 0 4px;
+    }
+    .ai-reel-stat{
+        font-size: 0.9rem;
+    }
+    .ai-reel-link{
+        font-size: 0.75rem;
     }
     .ai-works-title-row{
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
     }
-    /* About section mobile fix */
-    .about-photo-wrap{
-        max-width: 280px;
+
+    /* ── SELECTED WORKS mobile ── */
+    .project-section-heading{
+        font-size: 56px;
     }
-    .about-name{
-        font-size: clamp(2rem, 8vw, 3rem);
+    .project-heading-container{
+        margin-bottom: -20px;
     }
-    .stat-number{
-        font-size: 2.2rem;
+    .project-title{
+        font-size: 18px;
     }
-    /* Partners mobile padding */
-    .partners-container{
-        padding: 30px 20px;
-        border-radius: 30px 0px 30px 0px;
+    .project-category{
+        font-size: 14px;
     }
-    /* Project grid spacing mobile */
+    .request-loader{
+        width: auto;
+        height: 56px;
+    }
     .grid-spacer-y-120{
-        --bs-gutter-y: 40px;
+        --bs-gutter-y: 30px;
     }
     .grid-spacer-x-5{
         --bs-gutter-x: 0px;
+    }
+
+    /* ── PARTNERS mobile ── */
+    .partners-container{
+        padding: 24px 16px;
+        border-radius: 20px 0px 20px 0px;
+    }
+    .partner-image{
+        max-height: 60px;
+    }
+    .partnership-title-content{
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    /* ── CONTACT CTA mobile ── */
+    .section-cta-contact{
+        padding: 40px 16px;
+    }
+    .contact-cta-banner{
+        padding: 40px 20px;
+        border-radius: 30px 0px 30px 0px;
+        gap: 16px;
+    }
+    .contact-cta-title{
+        font-size: 42px;
+        text-align: center;
+    }
+    .contact-cta-text-container{
+        width: 100%;
+        text-align: center;
+        margin-top: 0;
+    }
+    .contact-cta-text-container p{
+        font-size: 14px;
+    }
+    .contact-cta-text-container .btn{
+        font-size: 13px;
+        padding: 12px 20px;
+    }
+    .contact-cta-image{
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 280px;
+        margin: 10px auto 0;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    /* ── FOOTER mobile ── */
+    .footer-simple{
+        padding: 20px 16px;
+    }
+    .footer-logo{
+        height: 24px;
+    }
+
+    /* ── CHAT POPUP mobile ── */
+    .chat-popup{
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px 16px 0 0;
     }
     .contact-content-heading{
         font-size: 60px;
