@@ -240,12 +240,29 @@
                 display: none !important;
             }
 
-            /* ── HERO — compact, no empty space ── */
+            /* ── HERO — fit screen exactly, no gap below ── */
+            .section-banner-home {
+                max-height: 100vh !important;
+                max-height: 100svh !important;
+                overflow: hidden !important;
+            }
             .banner-home-video {
-                min-height: auto !important;
-                padding: 100px 20px 30px !important;
+                min-height: 100vh !important;
+                min-height: 100svh !important;
+                max-height: 100vh !important;
+                max-height: 100svh !important;
+                padding: 90px 20px 24px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            .banner-home-content {
+                width: 100% !important;
             }
             .home-divider { margin: 8px 0 !important; }
+            /* Hide home-spacer (red box between SAM MALKIN) on mobile */
+            .home-spacer { display: none !important; }
             .social-icon {
                 width: 44px !important;
                 min-height: 44px !important;
