@@ -97,14 +97,17 @@
         .project-content-container { position: relative; z-index: 2; }
         .project-heading-container { z-index: 0; pointer-events: none; }
 
-        /* UNIFORM VIDEO SIZES */
+        /* UNIFORM VIDEO SIZES — all 16:9 */
         .project-video-container,
         .project-video-container.project-video-container--tall,
         .project-video-container--wide {
-            height: clamp(220px, 30vw, 400px);
-            min-height: 220px;
+            aspect-ratio: 16 / 9;
+            height: auto !important;
+            min-height: 0 !important;
+            width: 100%;
             position: relative !important;
             overflow: hidden !important;
+            border-radius: 8px;
         }
         /* Static thumbnail bg */
         .project-video-bg {
@@ -114,13 +117,25 @@
             background-size: cover !important;
             background-position: center !important;
             z-index: 0 !important;
+            transition: opacity 0.3s;
         }
-        /* Hide YouTube background iframes in project containers - use static thumbnails */
-        .project-video-container > iframe {
+        /* Hide YT background iframes injected by API */
+        .project-video-container > iframe:not(.inline-yt-player) {
             display: none !important;
         }
-        /* Play button above video */
+        /* Inline YouTube player */
+        .inline-yt-player {
+            position: absolute !important;
+            top: 0 !important; left: 0 !important;
+            width: 100% !important; height: 100% !important;
+            z-index: 5 !important;
+            border: none !important;
+        }
+        /* Play button above thumbnail */
         .project-video-container > div { position: relative; z-index: 2; }
+        /* When playing, hide play button and dim thumbnail */
+        .project-video-container.is-playing > div { display: none; }
+        .project-video-container.is-playing .project-video-bg { opacity: 0; }
 
         /* CONTACT CTA */
         .contact-cta-image img {
@@ -955,7 +970,7 @@
                         <!-- 1: Israel Hayom -->
                         <div class="col">
                             <div class="d-flex flex-column gspace-2">
-                                <div class="project-video-container project-video-container--tall">
+                                <div class="project-video-container">
                                     <div class="project-video-bg" data-video-id="lCAKyTdKvNA" id="video-bg-1" style="background-image:url('https://img.youtube.com/vi/lCAKyTdKvNA/maxresdefault.jpg')"></div>
                                     <div>
                                         <button class="request-loader" data-video="https://www.youtube.com/embed/lCAKyTdKvNA"><i class="fa-solid fa-play"></i></button>
@@ -994,7 +1009,7 @@
                         <!-- 3: Marketing Campaign – wide -->
                         <div class="col-12 w-100">
                             <div class="d-flex flex-column gspace-2 justify-content-center align-items-center h-100 w-100">
-                                <div class="project-video-container project-video-container--wide">
+                                <div class="project-video-container">
                                     <div class="project-video-bg" data-video-id="UwoSg4ssoOo" id="video-bg-3" style="background-image:url('https://img.youtube.com/vi/UwoSg4ssoOo/maxresdefault.jpg')"></div>
                                     <div class="w-100 d-flex justify-content-center">
                                         <button class="request-loader" data-video="https://www.youtube.com/embed/UwoSg4ssoOo"><i class="fa-solid fa-play"></i></button>
@@ -1032,7 +1047,7 @@
                         <!-- 5: Noa Argamani – tall -->
                         <div class="col">
                             <div class="d-flex flex-column gspace-2">
-                                <div class="project-video-container project-video-container--tall">
+                                <div class="project-video-container">
                                     <div class="project-video-bg" data-video-id="UIVBXrkdFoo" id="video-bg-5" style="background-image:url('https://img.youtube.com/vi/UIVBXrkdFoo/maxresdefault.jpg')"></div>
                                     <div>
                                         <button class="request-loader" data-video="https://www.youtube.com/embed/UIVBXrkdFoo"><i class="fa-solid fa-play"></i></button>
@@ -1051,7 +1066,7 @@
                         <!-- 6: GINDI – wide -->
                         <div class="col-12 w-100">
                             <div class="d-flex flex-column gspace-2 justify-content-center align-items-center h-100 w-100">
-                                <div class="project-video-container project-video-container--wide">
+                                <div class="project-video-container">
                                     <div class="project-video-bg" data-video-id="OEOH9IE-LXc" id="video-bg-6" style="background-image:url('https://img.youtube.com/vi/OEOH9IE-LXc/maxresdefault.jpg')"></div>
                                     <div class="w-100 d-flex justify-content-center">
                                         <button class="request-loader" data-video="https://www.youtube.com/embed/OEOH9IE-LXc"><i class="fa-solid fa-play"></i></button>
@@ -1072,16 +1087,6 @@
             </div>
         </div>
     </section>
-
-    <!-- ── VIDEO MODAL ── -->
-    <div class="section p-0">
-        <div id="modal-overlay" class="modal-overlay">
-            <div class="my-modal">
-                <button class="my-close"><i class="fa-solid fa-xmark"></i></button>
-                <iframe id="my-video-frame" allowfullscreen title="Video Player"></iframe>
-            </div>
-        </div>
-    </div>
 
     <!-- ── CLIENTS & PARTNERS ── -->
     <section class="section-small" id="clients">

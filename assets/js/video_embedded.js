@@ -1,27 +1,37 @@
+// Inline YouTube player — plays inside the container, no modal
 $(function() {
-  const $openModalButtons = $('.request-loader');
-  const $overlay = $('#modal-overlay');
-  const $closeModal = $('.my-close');
-  const $videoFrame = $('#my-video-frame');
+    var $playButtons = $('.request-loader');
 
-  $openModalButtons.on('click', function() {
-      const videoUrl = $(this).attr('data-video');
-      $videoFrame.attr('src', videoUrl + "?autoplay=1");
-      $overlay.css('display', 'flex');
-  });
+    $playButtons.on('click', function() {
+        var $btn = $(this);
+        var videoUrl = $btn.attr('data-video');
+        if (!videoUrl) return;
 
-  $closeModal.on('click', function() {
-    $overlay.hide();
+        var $container = $btn.closest('.project-video-container');
 
-    $videoFrame.attr('src', '');
-    $videoFrame[0].contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
-});
+        // If already playing, toggle off
+        if ($container.hasClass('is-playing')) {
+            $container.find('.inline-yt-player').remove();
+            $container.removeClass('is-playing');
+            return;
+        }
 
+        // Close any other playing videos first
+        $('.project-video-container.is-playing').each(function() {
+            $(this).find('.inline-yt-player').remove();
+            $(this).removeClass('is-playing');
+        });
 
-  $overlay.on('click', function(e) {
-      if (e.target === this) {
-          $overlay.hide();
-          $videoFrame.attr('src', "");
-      }
-  });
+        // Create inline iframe
+        var iframe = $('<iframe>', {
+            src: videoUrl + '?autoplay=1&rel=0&modestbranding=1',
+            class: 'inline-yt-player',
+            allow: 'autoplay; encrypted-media',
+            allowfullscreen: true,
+            title: 'Video Player'
+        });
+
+        $container.append(iframe);
+        $container.addClass('is-playing');
+    });
 });
