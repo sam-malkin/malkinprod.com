@@ -213,16 +213,21 @@
                 margin-bottom: 16px !important;
                 padding: 0 !important;
             }
-            /* Stats in one row */
+            /* Stats in one row with space between */
             .section-about .d-flex.flex-row.gap-5 {
+                display: flex !important;
                 justify-content: space-around !important;
-                gap: 0 !important;
+                gap: 12px !important;
                 flex-wrap: nowrap !important;
                 text-align: center !important;
                 width: 100% !important;
             }
-            .stat-number { font-size: 1.6rem !important; }
-            .stat-label { font-size: 0.55rem !important; }
+            .section-about .d-flex.flex-row.gap-5 > div {
+                flex: 1 !important;
+                text-align: center !important;
+            }
+            .stat-number { font-size: 1.5rem !important; }
+            .stat-label { font-size: 0.5rem !important; letter-spacing: 1px !important; }
 
             /* AI Works — center */
             .ai-works-header { text-align: center !important; }
@@ -235,15 +240,12 @@
                 display: none !important;
             }
 
-            /* ── HERO — CTA + socials at bottom of section ── */
+            /* ── HERO — compact, no empty space ── */
             .banner-home-video {
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                min-height: 100vh !important;
-                min-height: 100svh !important;
-                padding-bottom: 30px !important;
+                min-height: auto !important;
+                padding: 100px 20px 30px !important;
             }
+            .home-divider { margin: 8px 0 !important; }
             .social-icon {
                 width: 44px !important;
                 min-height: 44px !important;
