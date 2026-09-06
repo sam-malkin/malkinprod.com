@@ -194,18 +194,70 @@
                 display: none !important;
             }
 
-            /* AI Works — force single column */
+            /* AI Works — horizontal swipe carousel */
             .ai-reels-grid {
-                grid-template-columns: 1fr !important;
-                gap: 28px !important;
-                max-width: 300px !important;
-                margin: 0 auto !important;
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 16px !important;
+                padding: 0 16px 12px !important;
+                max-width: 100% !important;
+                margin: 0 -16px !important;
+                scrollbar-width: none !important;
             }
+            .ai-reels-grid::-webkit-scrollbar { display: none; }
+            .ai-reels-grid .ai-reel-card {
+                flex: 0 0 75vw !important;
+                max-width: 75vw !important;
+                scroll-snap-align: center !important;
+            }
+
+            /* Selected Works — horizontal swipe, 2 rows of 3 */
+            .project-content-container .row {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 12px !important;
+                padding: 0 0 12px !important;
+                scrollbar-width: none !important;
+                --bs-gutter-x: 0 !important;
+                --bs-gutter-y: 0 !important;
+            }
+            .project-content-container .row::-webkit-scrollbar { display: none; }
+            .project-content-container .row > .col,
+            .project-content-container .row > .col-12 {
+                flex: 0 0 72vw !important;
+                max-width: 72vw !important;
+                width: 72vw !important;
+                scroll-snap-align: center !important;
+            }
+            .project-content-container .row > .col .project-video-container {
+                aspect-ratio: 16/9 !important;
+            }
+            .project-content-container .row > .col .project-title {
+                font-size: 14px !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* Compact section padding on mobile */
+            .section-project { padding-top: 40px !important; padding-bottom: 40px !important; }
+            .section-ai-works { padding: 40px 16px !important; }
+            .project-heading-container { margin-bottom: -15px !important; }
+            .project-section-heading { font-size: 48px !important; }
 
             /* Hero section text centering */
             .home-title-container h1 {
                 text-align: center !important;
             }
+
+            /* Compact about section */
+            .section-about { padding: 40px 0 !important; }
+            .about-tagline { font-size: 0.85rem !important; margin-bottom: 24px !important; }
         }
 
         /* CONTACT CTA */
