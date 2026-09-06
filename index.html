@@ -145,38 +145,106 @@
 
         /* MOBILE overrides */
         @media (max-width: 767.98px) {
-            /* Video containers */
-            .project-video-container { border-radius: 6px; }
-            .project-title { font-size: 16px !important; }
-            .project-title a { font-size: 16px !important; }
-            .project-category { font-size: 12px; }
-            .request-loader { height: 48px; padding: 0 16px; }
-
-            /* Fix horizontal overflow from swiper negative margins */
+            /* ── GLOBAL MOBILE ── */
             .swiperpartner { margin: 0 !important; }
 
-            /* Center all text on mobile */
+            /* ── CENTER ALL TEXT ── */
             .home-title-container,
             .home-avatar-container { text-align: center !important; }
+            .home-title-container h1 { text-align: center !important; }
             .about-tagline { text-align: center !important; }
+            .ai-works-header { text-align: center !important; }
+            .ai-works-title { text-align: center !important; }
+            .ai-works-desc { text-align: center !important; }
+            .ai-works-title-row { align-items: center !important; }
+            .ai-works-stats { justify-content: center !important; }
 
-            /* Contact CTA — dark background, hide photo (it's a desktop bg) */
+            /* ── COMPACT SECTIONS ── */
+            .section-about { padding: 40px 16px !important; }
+            .about-tagline { font-size: 0.85rem !important; margin-bottom: 20px !important; }
+            .section-ai-works { padding: 40px 16px !important; }
+            .section-project { padding-top: 30px !important; padding-bottom: 30px !important; }
+            .section-cta-contact { padding: 30px 16px !important; }
+            .project-heading-container { margin-bottom: -10px !important; }
+            .project-section-heading { font-size: 42px !important; }
+
+            /* ── AI WORKS — horizontal swipe ── */
+            .ai-reels-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 12px !important;
+                padding: 0 16px 8px !important;
+                max-width: 100vw !important;
+                margin: 0 -16px !important;
+                scrollbar-width: none !important;
+            }
+            .ai-reels-grid::-webkit-scrollbar { display: none; }
+            .ai-reels-grid .ai-reel-card {
+                flex: 0 0 70vw !important;
+                max-width: 70vw !important;
+                scroll-snap-align: center !important;
+            }
+
+            /* ── SELECTED WORKS — horizontal swipe ── */
+            .project-content-container .row {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 0 !important;
+                padding: 0 16px 8px !important;
+                scrollbar-width: none !important;
+                --bs-gutter-x: 0 !important;
+                --bs-gutter-y: 0 !important;
+                margin: 0 !important;
+                align-items: stretch !important;
+            }
+            .project-content-container .row::-webkit-scrollbar { display: none; }
+            .project-content-container .row > .col,
+            .project-content-container .row > .col-12 {
+                flex: 0 0 44vw !important;
+                max-width: 44vw !important;
+                width: 44vw !important;
+                scroll-snap-align: start !important;
+                padding: 0 6px !important;
+            }
+            .project-video-container {
+                border-radius: 6px !important;
+                aspect-ratio: 16/9 !important;
+                height: auto !important;
+                min-height: 0 !important;
+            }
+            .project-title,
+            .project-title a {
+                font-size: 11px !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            .project-category { font-size: 0 !important; visibility: hidden; height: 0; }
+            .project-result,
+            .project-result .result-link { display: none !important; }
+            .request-loader {
+                height: 36px !important;
+                width: 36px !important;
+                padding: 0 !important;
+                font-size: 12px !important;
+            }
+            .gspace-2 { gap: 6px 6px !important; }
+
+            /* ── CONTACT CTA — dark bg, no photo ── */
             .contact-cta-banner {
                 background-color: #111 !important;
-                padding: 40px 20px !important;
-                border-radius: 30px 0px 30px 0px !important;
+                padding: 30px 20px !important;
+                border-radius: 24px 0px 24px 0px !important;
                 align-items: center !important;
             }
-            .contact-cta-title-container {
-                width: 100% !important;
-            }
-            .contact-cta-title {
-                font-size: 36px !important;
-                text-align: center !important;
-            }
-            .contact-cta-title.heading-stroke {
-                display: none !important;
-            }
+            .contact-cta-title-container { width: 100% !important; }
+            .contact-cta-title { font-size: 32px !important; text-align: center !important; }
+            .contact-cta-title.heading-stroke { display: none !important; }
             .contact-cta-text-container {
                 width: 100% !important;
                 margin-top: 0 !important;
@@ -188,76 +256,32 @@
                 background: var(--accent-color) !important;
                 color: #fff !important;
                 border-color: var(--accent-color) !important;
+                font-size: 13px !important;
+                padding: 10px 16px !important;
             }
-            /* Hide the photo on mobile — on desktop it's a background overlay */
-            .contact-cta-image {
-                display: none !important;
-            }
+            .contact-cta-image { display: none !important; }
 
-            /* AI Works — horizontal swipe carousel */
-            .ai-reels-grid {
-                display: flex !important;
-                overflow-x: auto !important;
-                scroll-snap-type: x mandatory !important;
-                -webkit-overflow-scrolling: touch !important;
-                gap: 16px !important;
-                padding: 0 16px 12px !important;
+            /* ── CHAT POPUP — full-width, above bottom ── */
+            .chat-popup {
+                bottom: 0 !important;
+                right: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
                 max-width: 100% !important;
-                margin: 0 -16px !important;
-                scrollbar-width: none !important;
+                border-radius: 16px 16px 0 0 !important;
+                max-height: 85vh !important;
             }
-            .ai-reels-grid::-webkit-scrollbar { display: none; }
-            .ai-reels-grid .ai-reel-card {
-                flex: 0 0 75vw !important;
-                max-width: 75vw !important;
-                scroll-snap-align: center !important;
+            .chat-popup-body {
+                max-height: 30vh !important;
+                min-height: 80px !important;
             }
-
-            /* Selected Works — horizontal swipe, 2 rows of 3 */
-            .project-content-container .row {
-                display: flex !important;
-                flex-wrap: nowrap !important;
-                overflow-x: auto !important;
-                scroll-snap-type: x mandatory !important;
-                -webkit-overflow-scrolling: touch !important;
-                gap: 12px !important;
-                padding: 0 0 12px !important;
-                scrollbar-width: none !important;
-                --bs-gutter-x: 0 !important;
-                --bs-gutter-y: 0 !important;
-            }
-            .project-content-container .row::-webkit-scrollbar { display: none; }
-            .project-content-container .row > .col,
-            .project-content-container .row > .col-12 {
-                flex: 0 0 72vw !important;
-                max-width: 72vw !important;
-                width: 72vw !important;
-                scroll-snap-align: center !important;
-            }
-            .project-content-container .row > .col .project-video-container {
-                aspect-ratio: 16/9 !important;
-            }
-            .project-content-container .row > .col .project-title {
-                font-size: 14px !important;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .chat-popup-input {
+                padding-bottom: env(safe-area-inset-bottom, 8px) !important;
             }
 
-            /* Compact section padding on mobile */
-            .section-project { padding-top: 40px !important; padding-bottom: 40px !important; }
-            .section-ai-works { padding: 40px 16px !important; }
-            .project-heading-container { margin-bottom: -15px !important; }
-            .project-section-heading { font-size: 48px !important; }
-
-            /* Hero section text centering */
-            .home-title-container h1 {
-                text-align: center !important;
-            }
-
-            /* Compact about section */
-            .section-about { padding: 40px 0 !important; }
-            .about-tagline { font-size: 0.85rem !important; margin-bottom: 24px !important; }
+            /* ── PARTNERS compact ── */
+            .partners-container { padding: 16px !important; }
+            .partnership-title-content { font-size: 12px !important; margin-bottom: 8px !important; }
         }
 
         /* CONTACT CTA */
