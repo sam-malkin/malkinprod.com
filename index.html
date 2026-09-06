@@ -153,21 +153,60 @@
             .home-avatar-container { text-align: center !important; }
             .home-title-container h1 { text-align: center !important; }
 
-            /* About — center everything */
-            .section-about .col-lg-7 { text-align: center !important; }
-            .about-label { display: block !important; text-align: center !important; }
-            .about-name { text-align: center !important; }
+            /* About — photo as background, text overlay */
+            .section-about { padding: 0 !important; position: relative !important; }
+            .section-about .hero-container { padding: 0 !important; }
+            .section-about .row { margin: 0 !important; }
+            .section-about .row > .col-lg-5 {
+                display: none !important;
+            }
+            .section-about .row > .col-lg-7 {
+                position: relative !important;
+                z-index: 2 !important;
+                text-align: center !important;
+                padding: 50px 20px 30px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.3) 0%,
+                    rgba(0,0,0,0.75) 35%,
+                    rgba(0,0,0,0.92) 100%
+                ) !important;
+            }
+            .section-about::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 340px;
+                background: url('./assets/images/sam-photo.png') center top / cover no-repeat;
+                z-index: 0;
+            }
+            .section-about .row {
+                position: relative !important;
+                z-index: 1 !important;
+                flex-direction: column !important;
+            }
+            .about-label { text-align: center !important; }
+            .about-name { text-align: center !important; font-size: 2rem !important; }
             .about-title { text-align: center !important; }
-            .about-tagline { text-align: center !important; max-width: 100% !important; }
-            /* Stats in one row, centered */
+            .about-tagline {
+                text-align: center !important;
+                max-width: 100% !important;
+                font-size: 13px !important;
+                line-height: 1.6 !important;
+                margin-bottom: 16px !important;
+            }
+            /* Stats in one row */
             .section-about .d-flex.flex-row.gap-5 {
                 justify-content: center !important;
-                gap: 24px !important;
+                gap: 20px !important;
                 flex-wrap: nowrap !important;
                 text-align: center !important;
             }
-            .stat-number { font-size: 1.8rem !important; }
-            .stat-label { font-size: 0.6rem !important; }
+            .stat-number { font-size: 1.6rem !important; }
+            .stat-label { font-size: 0.55rem !important; }
 
             /* AI Works — center */
             .ai-works-header { text-align: center !important; }
