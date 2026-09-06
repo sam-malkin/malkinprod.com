@@ -152,12 +152,28 @@
             .home-title-container,
             .home-avatar-container { text-align: center !important; }
             .home-title-container h1 { text-align: center !important; }
-            .about-tagline { text-align: center !important; }
+
+            /* About — center everything */
+            .section-about .col-lg-7 { text-align: center !important; }
+            .about-label { display: block !important; text-align: center !important; }
+            .about-name { text-align: center !important; }
+            .about-title { text-align: center !important; }
+            .about-tagline { text-align: center !important; max-width: 100% !important; }
+            /* Stats in one row, centered */
+            .section-about .d-flex.flex-row.gap-5 {
+                justify-content: center !important;
+                gap: 24px !important;
+                flex-wrap: nowrap !important;
+                text-align: center !important;
+            }
+            .stat-number { font-size: 1.8rem !important; }
+            .stat-label { font-size: 0.6rem !important; }
+
+            /* AI Works — center */
             .ai-works-header { text-align: center !important; }
             .ai-works-title { text-align: center !important; }
             .ai-works-desc { text-align: center !important; }
             .ai-works-title-row { align-items: center !important; }
-            .ai-works-stats { justify-content: center !important; }
 
             /* ── COMPACT SECTIONS ── */
             .section-about { padding: 40px 16px !important; }
