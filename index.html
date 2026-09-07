@@ -289,14 +289,44 @@
             .section-ai-works { padding: 40px 16px !important; }
             .section-project { padding-top: 30px !important; padding-bottom: 30px !important; }
             .section-cta-contact { padding: 30px 16px !important; }
-            /* Selected Works heading — visible, not overlapping */
+            /* Selected Works heading — ABOVE videos, visible */
             .project-heading-container {
-                margin-bottom: 10px !important;
+                margin-bottom: 12px !important;
                 position: relative !important;
+                z-index: 10 !important;
             }
             .project-section-heading {
-                font-size: 28px !important;
-                opacity: 0.4 !important;
+                font-size: 24px !important;
+                opacity: 1 !important;
+                position: relative !important;
+                text-align: center !important;
+            }
+
+            /* ── PARTNERS — compact on mobile ── */
+            .section-small {
+                padding: 24px 16px !important;
+            }
+            .partnership-title-content {
+                font-size: 13px !important;
+                margin-bottom: 12px !important;
+                text-align: center !important;
+            }
+            .partner-image {
+                max-height: 48px !important;
+            }
+
+            /* ── SWIPE HINTS (mobile only) ── */
+            .swipe-hint {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 6px !important;
+                font-size: 11px !important;
+                color: rgba(255,255,255,0.4) !important;
+                text-transform: uppercase !important;
+                letter-spacing: 2px !important;
+                margin-top: 10px !important;
+                font-family: var(--font-family-2) !important;
             }
 
             /* ── AI WORKS — horizontal swipe ── */
@@ -416,6 +446,9 @@
             .partners-container { padding: 16px !important; }
             .partnership-title-content { font-size: 12px !important; margin-bottom: 8px !important; }
         }
+
+        /* Swipe hints hidden on desktop */
+        .swipe-hint { display: none; }
 
         /* CONTACT CTA */
         .contact-cta-image img {
@@ -1221,6 +1254,7 @@
                     </div>
                 </div>
             </div>
+            <div class="swipe-hint">Swipe for more <i class="fa-solid fa-arrow-right"></i></div>
         </div>
     </section>
 
@@ -1351,6 +1385,7 @@
 
                     </div>
                 </div>
+                <div class="swipe-hint">Swipe for more <i class="fa-solid fa-arrow-right"></i></div>
             </div>
         </div>
     </section>
