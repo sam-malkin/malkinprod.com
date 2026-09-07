@@ -289,10 +289,11 @@
             .section-ai-works { padding: 40px 16px !important; }
             .section-project { padding-top: 30px !important; padding-bottom: 30px !important; }
             .section-cta-contact { padding: 30px 16px !important; }
-            /* Selected Works heading — ABOVE videos, visible */
+            /* Selected Works heading — ABOVE videos, not sticky/overlapping */
             .project-heading-container {
-                margin-bottom: 12px !important;
                 position: relative !important;
+                top: auto !important;
+                margin-bottom: 12px !important;
                 z-index: 10 !important;
             }
             .project-section-heading {
@@ -300,6 +301,7 @@
                 opacity: 1 !important;
                 position: relative !important;
                 text-align: center !important;
+                transform: none !important;
             }
 
             /* ── PARTNERS — compact on mobile ── */
